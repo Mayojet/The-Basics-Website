@@ -1,41 +1,100 @@
 /* Your CSS here. */
 
-html, body { height: 100%; margin: 0; }
-body {
-  display: grid;
-  place-items: center;   
-  background: #fff;
-  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  color: #111827;
-}
+:root{
+    --illini-blue:   #13294B;  
+    --illini-blue-2: #0F2140;  
+    --illini-orange: #E84A27;   
+    --paper: #ffffff;
+  
+    --card-width: 760px;
+    --text: rgba(255,255,255,.96);
+  }
+  
+ 
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body{
+    display: grid;
+    place-items: center;          
+    background: var(--paper);     
+    color: #111827;
+    font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+ 
+  .card{
+    position: relative;
+    width: min(92vw, var(--card-width));
+    padding: 32px 36px 40px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, var(--illini-blue-2), var(--illini-blue));
+    color: var(--text);
+    box-shadow: 0 14px 30px rgba(0,0,0,.28);
+    text-align: center;           
+  }
+  
 
-.card {
-  width: min(92vw, 760px);
-  padding: 28px 32px 36px;
-  border-radius: 8px;
-  background: linear-gradient(90deg, #6a6a6a 0%, #5b5b5b 100%);
-  color: #fff;
-  box-shadow: 0 12px 28px rgba(0,0,0,.25);
-  text-align: center;  
-}
+  .card::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height: 8px;
+    background: var(--illini-orange);
+    border-radius: 12px 12px 0 0;
+  }
+  
 
-/* Image center */
-.avatar {
-  display: block;
-  width: 150px; height: 150px;
-  object-fit: cover;
-  margin: 0 auto 16px;
-  border-radius: 4px;
-}
+  .avatar{
+    display: block;
+    width: 150px;
+    height: 150px;               
+    object-fit: cover;
+    margin: 6px auto 18px;        
+    border-radius: 6px;
+    border: 3px solid var(--illini-orange);
+  }
+  
 
-h1 { margin: 10px 0 8px; font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 800; }
-.email { margin: 0 0 10px; color: rgba(255,255,255,.92); }
+  h1{
+    margin: 10px 0 8px;
+    font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: .2px;
+    color: #fff;
+  }
+  .email{
+    margin: 0 0 12px;
+    font-style: italic;
+    color: rgba(255,255,255,.92);
+  }
+  
 
-.primary-link {
-  display: inline-block;
-  color: #c7b8ff; text-decoration: underline; font-weight: 600;
-  margin: 4px 0 18px;
-}
+  .primary-link{
+    display: inline-block;
+    margin: 4px 0 20px;
+    color: var(--illini-orange);
+    text-decoration: underline;
+    font-weight: 700;
+  }
+  .primary-link:hover{ opacity: .9; }
+  .primary-link:focus-visible{
+    outline: 2px solid var(--illini-orange);
+    outline-offset: 3px;
+    border-radius: 6px;
+    background: rgba(255,255,255,.08);
+  }
+  
 
-.bio { text-align: left; margin: 0 auto; max-width: 62ch; color: rgba(255,255,255,.95); }
-.bio p { margin: 0 0 16px; }
+  .bio{
+    text-align: left;
+    margin: 0 auto;
+    max-width: 62ch;              
+    color: var(--text);
+  }
+  .bio p{ margin: 0 0 16px; }
+  
+
+  @media (max-width: 420px){
+    .card{ padding: 24px 18px 28px; }
+  }
+  
